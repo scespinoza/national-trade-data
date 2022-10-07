@@ -102,14 +102,12 @@ const ImportsChart = ({ countryID, countryName }) => {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [maxCategory, setMaxCategory] = useState({});
 
   useEffect(() => {
     const url = `https://oec.world/olap-proxy/data.jsonrecords?Importer+Country=${countryID}&Year=2020&cube=trade_i_baci_a_92&drilldowns=HS2&measures=Trade+Value&token=${process.env.REACT_APP_ACCESS_TOKEN}`;
     axios.get(url).then((response) => {
       setData(response.data.data);
       setTotal(response.data.data.reduce((a, b) => a + b["Trade Value"], 0));
-      setMaxCategory();
       setIsLoading(false);
     });
   }, [countryID]);

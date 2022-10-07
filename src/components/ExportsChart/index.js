@@ -8,7 +8,7 @@ import { IconMoodSad } from "@tabler/icons";
 
 const formatCurrency = format(".3~a");
 
-const ChartDescription = ({ countryName, data, total }) => {
+const ChartDescription = ({ countryName, data }) => {
   const dataSorted = _.sortBy(data, (d) => -d["Trade Value"]);
   const maxCategory = dataSorted[0];
   const importantCategories = dataSorted
@@ -103,7 +103,6 @@ const ImportsChart = ({ countryID, countryName }) => {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState();
   const [isLoading, setLoading] = useState(true);
-  const [maxCategory, setMaxCategory] = useState({});
 
   useEffect(() => {
     setLoading(true);
@@ -113,7 +112,7 @@ const ImportsChart = ({ countryID, countryName }) => {
       .then((response) => {
         setData(response.data.data);
         setTotal(response.data.data.reduce((a, b) => a + b["Trade Value"], 0));
-        setMaxCategory(_.maxBy(response.data.data, "Trade Value"));
+
         setLoading(false);
       })
       .catch((error) => {
