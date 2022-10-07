@@ -15,15 +15,18 @@ const ImportsChart = ({ countryID }) => {
     <article>
       <Title>Imports</Title>
       <div className="chart-container">
-        <Treemap
-          config={{
-            height: 400,
-            data: data.map((d) => ({
-              id: d["HS2"],
-              value: d["Trade Value"],
-            })),
-          }}
-        />
+        {data.length > 0 && (
+          <Treemap
+            config={{
+              detectVisible: false,
+              height: 400,
+              data: data.map((d) => ({
+                id: d["HS2"],
+                value: d["Trade Value"],
+              })),
+            }}
+          />
+        )}
       </div>
     </article>
   );
