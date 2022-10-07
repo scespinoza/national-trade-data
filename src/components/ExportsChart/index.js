@@ -56,6 +56,12 @@ const ImportsChart = ({ countryID, countryName }) => {
                 id: d["HS2"],
                 value: d["Trade Value"],
               })),
+              tooltipConfig: {
+                tbody: [
+                  ["Exports", (d) => `$${formatCurrency(d.value)} USD`],
+                  ["Share", (d) => `${_.round((100 * d.value) / total, 2)}%`],
+                ],
+              },
             }}
           />
         )}
