@@ -8,7 +8,7 @@ const Error = () => {
   return (
     <main className="error">
       <Header />
-      <div class="error-message-container">
+      <div className="error-message-container">
         <Title order={2} align="center">
           Whoops! We couldn't find any data for this country.
         </Title>

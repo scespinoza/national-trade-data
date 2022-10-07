@@ -14,8 +14,8 @@ const Country = () => {
   const navigate = useNavigate();
   const { countryID } = useParams();
   const countries = useContext(CountriesDataContext);
-
   const country = countries.find((country) => country["ID"] === countryID);
+
   if (country) {
     return (
       <div className="dashboard">
@@ -52,7 +52,7 @@ const Country = () => {
         <Footer />
       </div>
     );
-  } else {
+  } else if (!country && countries.length > 0) {
     throw new Error("Country does not exists");
   }
 };
