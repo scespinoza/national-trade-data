@@ -16,7 +16,7 @@ const Country = () => {
   const countries = useContext(CountriesDataContext);
 
   const country = countries.find((country) => country["ID"] === countryID);
-  if (country)
+  if (country) {
     return (
       <div className="dashboard">
         <main>
@@ -52,6 +52,9 @@ const Country = () => {
         <Footer />
       </div>
     );
+  } else {
+    throw new Error("Country does not exists");
+  }
 };
 
 export default Country;

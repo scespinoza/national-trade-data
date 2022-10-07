@@ -10,7 +10,7 @@ const Error = () => {
       <Header />
       <div class="error-message-container">
         <Title order={2} align="center">
-          Whoops! We couldn't find data for this country
+          Whoops! We couldn't find any data for this country.
         </Title>
 
         <Link to="/">
