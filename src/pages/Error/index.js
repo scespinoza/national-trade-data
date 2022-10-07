@@ -8,14 +8,17 @@ const Error = () => {
   return (
     <main className="error">
       <Header />
-      <Title order={2} align="center">
-        Whoops! We couldn't find data for this country
-      </Title>
-      <Link to="/">
-        <Button leftIcon={<IconRefresh />} color="cyan.9">
-          Try with another one
-        </Button>
-      </Link>
+      <div class="error-message-container">
+        <Title order={2} align="center">
+          Whoops! We couldn't find data for this country
+        </Title>
+
+        <Link to="/">
+          <Button leftIcon={<IconRefresh />} color="cyan.9">
+            Try with another one
+          </Button>
+        </Link>
+      </div>
       <Footer />
     </main>
   );

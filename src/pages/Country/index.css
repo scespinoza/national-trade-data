@@ -3,6 +3,8 @@
 ;}
 .dashboard article {
     margin: 3rem 0;
+    position: relative;
+    min-height: 400px;
 }
 .dashboard-header {
     display: flex;
@@ -13,10 +15,9 @@
     gap:1rem;
 }
 
-
 .chart-container {
     margin-top: 1rem;
-    height: 500px;
+    height: 400px;
 }
 
 .country-name {
@@ -31,4 +32,14 @@
 
 .chart-description {
     margin-top: 2rem;
+}
+
+.not-found-message {
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
 }

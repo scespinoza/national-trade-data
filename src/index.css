@@ -7,8 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./assets/waves.svg');
   background-repeat: no-repeat;
-  background-position: bottom;
-  
+  background-position: bottom -50px left;
+  background-size: 110%;
 }
 
 code {
@@ -29,4 +29,44 @@ code {
 
 .page-container {
   min-height: 100vh;
+}
+
+@media screen and (max-width: 1650px) {
+  body {
+  background-size: 140%;
+  background-position: bottom;
+  
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  body {
+  background-size: 180%;
+  background-position: bottom;
+  
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+  background-size: 250%;
+  background-position: bottom;
+  
+  }
+}
+
+@media screen and (max-width: 750px) {
+  body {
+  background-size: 300%;
+  background-position: bottom;
+  
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+  background-size: 400%;
+  background-position: bottom;
+  
+  }
 }
