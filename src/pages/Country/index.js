@@ -8,7 +8,7 @@ import ExportsChart from "../../components/ExportsChart";
 
 import "./index.css";
 
-const Dashboard = () => {
+const Country = () => {
   const navigate = useNavigate();
   const { countryID } = useParams();
   const countries = useContext(CountriesDataContext);
@@ -29,4 +29,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default Country;

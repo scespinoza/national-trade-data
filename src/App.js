@@ -6,7 +6,7 @@ import axios from "axios";
 import { Title, Container } from "@mantine/core";
 
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import Country from "./pages/Country";
 
 import CountriesDataContext from "./configContext";
 
@@ -22,8 +22,8 @@ function App() {
       element: <Home />,
     },
     {
-      path: "dashboard/:countryID",
-      element: <Dashboard />,
+      path: "country/:countryID",
+      element: <Country />,
     },
   ]);
 
