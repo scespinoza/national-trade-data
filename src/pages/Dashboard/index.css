@@ -1,0 +1,14 @@
+.dashboard > article {
+    margin: 3rem 0;
+
+}
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: 3rem 0;
+}
+
+.chart-container {
+    margin-top: 1rem;
+}
