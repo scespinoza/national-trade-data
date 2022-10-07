@@ -18,8 +18,7 @@ const SearchBar = () => {
           }))}
         placeholder="Start typing to find a country..."
         onItemSubmit={(value) => {
-          console.log(value.id);
-          return navigate(`/dashboard/${value.id}`);
+          return navigate(`/country/${value.id}`);
         }}
       />
     </div>
