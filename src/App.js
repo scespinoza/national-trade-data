@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import axios from "axios";
-import { Title, Container } from "@mantine/core";
+import { Container } from "@mantine/core";
 
 import Home from "./pages/Home";
 import Country from "./pages/Country";
@@ -36,10 +36,7 @@ function App() {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <CountriesDataContext.Provider value={countriesData}>
-        <Container>
-          <Title order={1} align="center">
-            National Trade Data
-          </Title>
+        <Container className="page-container">
           <RouterProvider router={router} />
         </Container>
       </CountriesDataContext.Provider>

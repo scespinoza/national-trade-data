@@ -1,0 +1,13 @@
+.random-selector {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: auto;
+}
+
+.random-suggestion {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

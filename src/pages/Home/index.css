@@ -1,0 +1,11 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 3rem 0;
+}
+.welcome-p {
+    margin-top: 3rem;
+}
+

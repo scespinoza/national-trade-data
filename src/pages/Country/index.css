@@ -1,6 +1,8 @@
-.dashboard > article {
+.dashboard {
+    padding: 3rem 0;
+;}
+.dashboard article {
     margin: 3rem 0;
-
 }
 .dashboard-header {
     display: flex;
@@ -11,4 +13,18 @@
 
 .chart-container {
     margin-top: 1rem;
+}
+
+.country-name {
+    letter-spacing: 0.08em;
+    font-size: 2.5rem;
+}
+
+.chart-section-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-description {
+    margin-top: 2rem;
 }
