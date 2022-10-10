@@ -11,4 +11,4 @@ Built using:
 - [Mantine](https://mantine.dev/)
 
 
-Live version available in https://nationa-trade-data.netlify.app
+Live version available in https://national-trade-data.netlify.app
