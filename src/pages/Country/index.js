@@ -40,11 +40,11 @@ const Country = () => {
               Search another country
             </Button>
           </div>
-          <ImportsChart
+          <ExportsChart
             countryID={countryID}
             countryName={country["EN Label"]}
           />
-          <ExportsChart
+          <ImportsChart
             countryID={countryID}
             countryName={country["EN Label"]}
           />

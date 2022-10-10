@@ -84,7 +84,7 @@ const Chart = ({ countryName, data, total }) => {
             fontWeight: 500,
             fontColor: "#0B7285",
           },
-
+          detectVisible: false,
           height: 400,
           data: data.map((d) => ({
             id: d["HS2"],
