@@ -6,48 +6,51 @@ import { Treemap } from "d3plus-react";
 import { Title, Text, LoadingOverlay } from "@mantine/core";
 import { IconMoodSad } from "@tabler/icons";
 
-const formatCurrency = format(".3~a");
+const formatCurrency = (x) => `$${format(".3~a")(x)} USD`;
 
 const ChartDescription = ({ countryName, data, total }) => {
   const dataSorted = _.sortBy(data, (d) => -d["Trade Value"]);
   const maxCategory = dataSorted[0];
   const importantCategories = dataSorted
     .slice(1, dataSorted.length - 1)
-    .slice(0, 2);
+    .slice(0, 2)
+    .filter((d) => d["Trade Value"] / total > 0.1);
 
   const ExtraCategories = ({ categories = [] }) => {
     if (categories.length === 0) return;
     if (categories.length === 1)
       return (
-        <Text>
+        <Text span>
+          {" "}
           Another important category of imported goods is{" "}
           <Text weight={500} italic span>
-            "{importantCategories["HS2"]}"
+            "{categories[0]["HS2"]}"
           </Text>{" "}
           with{" "}
           <Text color="cyan.9" weight={400} span>
-            {`$${formatCurrency(categories[0]["Trade Value"])} USD `}
+            {formatCurrency(categories[0]["Trade Value"])}.
           </Text>
         </Text>
       );
     if (categories.length === 2)
       return (
         <Text span>
+          {" "}
           Other important categories of imported goods are{" "}
           <Text weight={500} italic span>
             "{categories[0]["HS2"]}"
           </Text>{" "}
           with{" "}
           <Text color="cyan.9" weight={400} span>
-            {`$${formatCurrency(categories[0]["Trade Value"])} USD `}
-          </Text>
+            {formatCurrency(categories[0]["Trade Value"])}
+          </Text>{" "}
           and{" "}
           <Text weight={500} italic span>
             "{categories[1]["HS2"]}"
           </Text>{" "}
           with{" "}
           <Text color="cyan.9" weight={400} span>
-            {`$${formatCurrency(categories[1]["Trade Value"])} USD.`}
+            {formatCurrency(categories[1]["Trade Value"])}.
           </Text>
         </Text>
       );
@@ -63,9 +66,9 @@ const ChartDescription = ({ countryName, data, total }) => {
         "{maxCategory["HS2"]}"
       </Text>{" "}
       with a trade value of{" "}
-      <Text weight={500} color="cyan.9" span>{`$${formatCurrency(
-        maxCategory["Trade Value"]
-      )} USD. `}</Text>
+      <Text weight={500} color="cyan.9" span>
+        {formatCurrency(maxCategory["Trade Value"])}.
+      </Text>
       <ExtraCategories categories={importantCategories} />
     </Text>
   );
@@ -89,7 +92,7 @@ const Chart = ({ countryName, data, total }) => {
           })),
           tooltipConfig: {
             tbody: [
-              ["Imports", (d) => `$${formatCurrency(d.value)} USD`],
+              ["Imports", (d) => formatCurrency(d.value)],
               ["Share", (d) => `${_.round((100 * d.value) / total, 2)}%`],
             ],
           },
@@ -98,6 +101,7 @@ const Chart = ({ countryName, data, total }) => {
     </div>
   );
 };
+
 const ImportsChart = ({ countryID, countryName }) => {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState();
@@ -118,9 +122,9 @@ const ImportsChart = ({ countryID, countryName }) => {
         <Title color="gray.7" order={4} weight={500} transform="uppercase">
           Imports
         </Title>
-        <Text weight={700} color="cyan.9">{`Trade Value $${formatCurrency(
+        <Text weight={700} color="cyan.9">{`Trade Value ${formatCurrency(
           total
-        )} USD`}</Text>
+        )}`}</Text>
       </div>
       <LoadingOverlay visible={isLoading} loaderProps={{ color: "cyan.9" }} />
       {data.length > 0 && (

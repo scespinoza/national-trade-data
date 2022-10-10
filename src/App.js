@@ -1,8 +1,5 @@
 import { MantineProvider } from "@mantine/core";
-import { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import axios from "axios";
 import { Container } from "@mantine/core";
 
 import Home from "./pages/Home";
@@ -10,12 +7,9 @@ import Country from "./pages/Country";
 
 import CountriesDataContext from "./configContext";
 import Error from "./pages/Error";
-const COUNTRIES_LIST_URL =
-  "https://oec.world/olap-proxy/members?cube=trade_i_baci_a_92&level=Country&locale=en";
+import { useCountries } from "./hooks/countries";
 
 function App() {
-  const [countriesData, setCountriesData] = useState([]);
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -28,12 +22,8 @@ function App() {
     },
   ]);
 
-  useEffect(() => {
-    axios.get(COUNTRIES_LIST_URL).then((response) => {
-      const { data: countriesData } = response.data;
-      setCountriesData(countriesData);
-    });
-  }, []);
+  const countriesData = useCountries();
+
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <CountriesDataContext.Provider value={countriesData}>
